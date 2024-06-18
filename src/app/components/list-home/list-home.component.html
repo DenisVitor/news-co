@@ -1,0 +1,122 @@
+<main>
+  <div class="selection-title">
+    <h1>Recent news</h1>
+    <small>The most newstet topics</small>
+  </div>
+  <section class="selection-news-sec">
+    <div class="selected-item">
+      @if (newsData) {
+      <div>
+        <img src="{{ newsData.image }}" alt="" />
+        <h2 (click)="goToNews(newsData.id)">
+          {{ newsData.title }}
+        </h2>
+        <sub>{{ newsData.type }}</sub>
+        <p>{{ newsData.subtitle }}</p>
+      </div>
+      }
+    </div>
+    <ul class="main_list-news">
+      @for (news of newsList; track news.id; let i = $index) {
+      <li [class]="getNewsClass(i)" (click)="toggleSelection(i)">
+        <div [style.backgroundImage]="'url(' + news.image + ')'">
+          <div class="inner-news_data">
+            <sub>{{ news.type }}</sub>
+            <h2 (click)="goToNews(news.id)">{{ news.title }}</h2>
+          </div>
+        </div>
+      </li>
+      }
+    </ul>
+  </section>
+  <section class="sports-culture-sec">
+    <div class="sports-sec">
+      @if(sportNews) {
+      <div class="sport-news-data">
+        <h2>{{ sportNews.type }}</h2>
+        <img src="{{ sportNews.image }}" alt="" />
+        <div class="sport-news-texts">
+          <h1 (click)="goToNews(sportNews.id)">{{ sportNews.title }}</h1>
+          <h4>{{ sportNews.subtitle }}</h4>
+        </div>
+      </div>
+      }
+    </div>
+    <div class="culture-sec">
+      @if (cultureNews) {
+      <div class="culture-news-data">
+        <h2>{{ cultureNews.type }}</h2>
+        <img src="{{ cultureNews.image }}" alt="" />
+        <div class="culture-news-texts">
+          <h1 (click)="goToNews(cultureNews.id)">{{ cultureNews.title }}</h1>
+          <h4>{{ cultureNews.subtitle }}</h4>
+        </div>
+      </div>
+      }
+    </div>
+  </section>
+  <section class="contact-sec">
+    <div class="contact-dir">
+      <div class="contact-title">
+        <h1>Get in touch with us!</h1>
+        <b>Enter in contact with our team.</b>
+      </div>
+      <button class="contact-go" (click)="goToContacts()">
+        Go to Contacts
+      </button>
+    </div>
+  </section>
+  <section class="sports-culture-sec">
+    <div class="sports-sec">
+      @if(healthNews) {
+      <div class="sport-news-data">
+        <h2>{{ healthNews.type }}</h2>
+        <img src="{{ healthNews.image }}" alt="" />
+        <div class="sport-news-texts">
+          <h1 (click)="goToNews(healthNews.id)">{{ healthNews.title }}</h1>
+          <h4>{{ healthNews.subtitle }}</h4>
+        </div>
+      </div>
+      }
+    </div>
+    <div class="culture-sec">
+      @if (worldNews) {
+      <div class="culture-news-data">
+        <h2>{{ worldNews.type }}</h2>
+        <img src="{{ worldNews.image }}" alt="" />
+        <div class="culture-news-texts">
+          <h1 (click)="goToNews(worldNews.id)">{{ worldNews.title }}</h1>
+          <h4>{{ worldNews.subtitle }}</h4>
+        </div>
+      </div>
+      }
+    </div>
+  </section>
+  <section class="about-sec">
+    <div class="about-dir">
+      <div class="about-title">
+        <h1>Wanna know about our history?</h1>
+        <p>Check out here</p>
+      </div>
+      <button class="about-go" (click)="goToAbout()">Know more</button>
+    </div>
+  </section>
+  <section class="journo-sec">
+    <div class="journo-title">
+      <h1>Our team</h1>
+      <small>This are the list of our journalists.</small>
+    </div>
+    <ul class="journo-list">
+      @for (journo of journoList; track journo.id) {
+      <li>
+        <img src="{{ journo.avatar }}" alt="" />
+        <div class="journo-data">
+          <h4 (click)="goToJourno(journo.id)">{{ journo.name }}</h4>
+          <p>{{ journo.role }}</p>
+        </div>
+      </li>
+      }
+    </ul>
+    <button (click)="goToJournos()">See more</button>
+  </section>
+</main>

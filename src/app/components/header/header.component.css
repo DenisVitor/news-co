@@ -1,0 +1,143 @@
+header {
+  display: flex;
+  align-items: center;
+  padding: 0 1dvw;
+  background-color: #e32222;
+  justify-content: space-around;
+  height: 5rem;
+  width: 100dvw;
+  box-shadow: 1px 2px 5px darkgray;
+}
+header .header_nav {
+  display: flex;
+  height: 100%;
+  width: 20rem;
+  overflow-x: hidden;
+}
+header .header_nav ul {
+  display: flex;
+  gap: 1rem;
+  height: 100%;
+}
+header .header_nav ul li {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  height: 100%;
+  cursor: pointer;
+  transition: 0.1s ease;
+  padding: 0 0.2rem;
+}
+header .header_nav ul li p {
+  display: none;
+  color: white;
+  transition: 0.1s ease;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  animation: slide-in 0.4s ease none;
+}
+header .header_nav ul li:hover {
+  border-bottom: 2px solid white;
+}
+header .header_nav ul li:hover p {
+  display: flex;
+}
+header .header_nav ul li:active {
+  background-color: black;
+}
+header .header_title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 1;
+}
+header .header_title h1 {
+  display: flex;
+  gap: 0.1rem;
+  font-family: Georgia, "Times New Roman", Times, serif, Arial, sans-serif, Times, serif;
+  font-weight: 900;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  color: white;
+}
+header .header_title h1 span:hover {
+  color: black;
+}
+header .header_title .inner-letter {
+  display: flex;
+  font-size: 38px;
+  padding-top: 0.23rem;
+  animation: turning-in 1s ease none;
+}
+header .header_title .outer-letter {
+  font-size: 50px;
+  animation: turning-in 0.8s ease none;
+}
+header .header_search {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-right: 1dvw;
+}
+header .header_search .login-button {
+  cursor: pointer;
+  transition: 0.1s ease;
+}
+header .header_search .login-button:hover {
+  transform: scale(1.07);
+}
+header .header_search .login-button:active {
+  transform: scale(1);
+}
+header .header_search label {
+  display: flex;
+  border: 1px solid white;
+  height: -moz-fit-content;
+  height: fit-content;
+  align-self: center;
+  border-radius: 1rem;
+  padding: 0.2rem 0.7rem;
+}
+header .header_search label input {
+  background: transparent;
+  outline: none;
+  border: none;
+  font-size: 15px;
+  color: white;
+}
+header .header_search label input::-moz-placeholder {
+  color: white;
+}
+header .header_search label input::placeholder {
+  color: white;
+}
+header .header_search label button {
+  display: flex;
+}
+header .header_search label button:hover {
+  cursor: pointer;
+  transform: scale(1.08);
+}
+header .header_search label button:active {
+  transform: scale(1);
+}
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+@keyframes turning-in {
+  from {
+    transform: rotateX(0.23turn) translateY(-40px);
+  }
+  to {
+    transform: rotateX(0) translateY(0px);
+  }
+}/*# sourceMappingURL=header.component.css.map */

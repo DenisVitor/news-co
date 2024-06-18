@@ -1,0 +1,16 @@
+<main>
+  <div>
+    <h1>Know our teams</h1>
+    <p><i>From sports to economics, we gather any info</i></p>
+  </div>
+  <ul class="journo-list">
+    @for (journo of journoList; track journo.id) {
+    <li (click)="redirectWithId(journo.id)">
+      <img src="{{ journo.avatar }}" alt="{{ journo.name }}" />
+      <h3>{{ journo.name }}</h3>
+      <p class="journo-email">{{ journo.email }}</p>
+      <p class="journo-type">{{ journo.role }}</p>
+    </li>
+    }
+  </ul>
+</main>

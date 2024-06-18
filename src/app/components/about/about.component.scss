@@ -1,0 +1,111 @@
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 15dvw;
+  .about-title {
+    width: 100%;
+    text-align: start;
+    border-left: 3px solid blue;
+    border-bottom: 1px solid blue;
+    padding: 0.4rem 2rem;
+  }
+  .about-main-img {
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid blue;
+    width: 70dvw;
+  }
+  .about-sec-one {
+    display: flex;
+    gap: 2rem;
+    @media screen and (max-width: 850px) {
+      flex-direction: column;
+      ul {
+        flex-direction: column;
+      }
+    }
+    .about-main-text {
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+      h1 {
+        font-size: 40px;
+        border-left: 1px solid blue;
+        padding-left: 0.4rem;
+        font-weight: 300;
+        text-align: center;
+      }
+      p {
+        font-size: 15px;
+        font-weight: 300;
+        word-spacing: 0.3rem;
+      }
+    }
+    .about-main-select {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      li {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        h2 {
+          text-align: center;
+          font-size: 20px;
+          border-right: 1px solid blue;
+          padding-right: 0.4rem;
+          font-weight: 500;
+
+        }
+        p {
+          font-size: 14px;
+          font-weight: 300;
+          word-spacing: 0.1rem;
+        }
+      }
+    }
+  }
+  .about-sec-two {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 0;
+    gap: 4rem;
+    ul {
+      display: flex;
+      gap: 2rem;
+      width: 100%;
+      justify-content: space-between;
+      align-items: center;
+      @media screen and (max-width: 850px) {
+        flex-direction: column;
+      }
+      li {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+     
+        box-shadow: 1px 2px 7px darkgray;
+        padding: 1rem;
+        border-left: 3px solid blue;
+        height: 80dvh;
+        p {
+          text-align: center;
+          font-weight: 300;
+          font-size: 14px;
+          color: rgb(43, 43, 43);
+        }
+      }
+      img {
+        width: 13rem;
+        height: 13rem;
+        border-radius: 255px;
+        object-fit: cover;
+        object-position: top;
+      }
+    }
+  }
+}

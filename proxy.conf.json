@@ -1,0 +1,11 @@
+{
+  "/api": {
+    "target": "https://subjective-vicuna-denis-projects.koyeb.app",
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": {
+      "^/api": ""
+    }
+  }
+}

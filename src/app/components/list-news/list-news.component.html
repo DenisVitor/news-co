@@ -1,0 +1,48 @@
+<main>
+  <section class="news-sec">
+    <nav>
+      <ul>
+        @for (topic of typeNews; track $index) {
+        <li (click)="toggleListFilter(topic)">{{ topic }}</li>
+        }
+        <svg
+          [class]="showClearButton()"
+          (click)="toggleClearFilter()"
+          stroke="currentColor"
+          fill="currentColor"
+          stroke-width="0"
+          viewBox="0 0 512 512"
+          height="30px"
+          width="30px"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill="none"
+            stroke-miterlimit="10"
+            stroke-width="32"
+            d="M448 256c0-106-86-192-192-192S64 150 64 256s86 192 192 192 192-86 192-192z"
+          ></path>
+          <path
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="32"
+            d="M320 320 192 192m0 128 128-128"
+          ></path>
+        </svg>
+      </ul>
+    </nav>
+  </section>
+  <section class="news-sec-list">
+    <ul class="news-list">
+      @for (news of filteredNews; track news.id) {
+      <li>
+        <p>{{ news.type }}</p>
+        <img [src]="news.image" alt="" />
+        <h2 (click)="redirectWithId(news.id)">{{ news.title }}</h2>
+        <small>{{news.subtitle}}</small>
+      </li>
+      }
+    </ul>
+  </section>
+</main>

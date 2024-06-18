@@ -1,0 +1,555 @@
+<header>
+  <div class="header_search">
+    <label for="header_search-input">
+      <input
+        type="text"
+        id="header_search-input"
+        (input)="onChangeSearch($event)"
+      />
+      <button>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="24"
+          viewBox="0 -960 960 960"
+          width="24"
+        >
+          <path
+            d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"
+            fill="currentColor"
+          />
+        </svg>
+      </button>
+    </label>
+    @if(showSearch) {
+    <ul class="list-show-news">
+      @for (news of filteredList ; track news.id) {
+      <li>
+        <p>
+          {{ news.title }}
+        </p>
+      </li>
+      }
+    </ul>
+    }
+  </div>
+  <div class="responsive-menu">
+    <svg
+      stroke="currentColor"
+      fill="currentColor"
+      stroke-width="0"
+      viewBox="0 0 512 512"
+      height="50px"
+      width="50px"
+      xmlns="http://www.w3.org/2000/svg"
+      (click)="triggerResponse()"
+      class="responsive-button"
+    >
+      <path
+        fill="none"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="44"
+        d="M102 256h308m-308-80h308M102 336h308"
+      ></path>
+    </svg>
+    @if (toggleResponse) {
+    <ul class="responsive-list">
+      <li (click)="redirectToPage('news')">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          version="1.1"
+          viewBox="0 0 512 512"
+          xml:space="preserve"
+          width="30px"
+          height="30px"
+        >
+          <g>
+            <path
+              fill="currentColor"
+              d="M497.946,86.465c-7.768,0-14.055,6.285-14.055,14.054v312.41c-0.012,11.282-9.127,20.368-20.368,20.382H48.477   c-11.241-0.014-20.355-9.1-20.368-20.382V85.668L62.01,99.71c3.416,1.414,7.342,1.414,10.76,0l47.97-19.86l47.955,19.86   c3.417,1.414,7.342,1.414,10.76,0l47.941-19.86l47.943,19.86c3.416,1.414,7.329,1.414,10.746,0l48.01-19.86l48.052,19.86   c3.417,1.414,7.315,1.414,10.734,0l33.996-14.054v296.173c0,7.768,6.286,14.054,14.054,14.054s14.054-6.286,14.054-14.054V64.641   c0-4.693-2.333-9.072-6.244-11.679c-3.899-2.621-8.839-3.116-13.176-1.304l-48.052,19.86l-48.051-19.86   c-3.418-1.426-7.316-1.426-10.734,0l-48.01,19.846l-47.941-19.846c-3.418-1.426-7.344-1.426-10.762,0l-47.942,19.846L126.12,51.658   c-3.432-1.426-7.344-1.426-10.76,0L67.39,71.504L19.434,51.658c-4.351-1.798-9.279-1.317-13.19,1.29   C2.333,55.569,0,59.948,0,64.641V412.93c0,26.791,21.699,48.477,48.477,48.491h415.046c26.778-0.014,48.477-21.7,48.477-48.491   V100.52C512,92.75,505.701,86.465,497.946,86.465z"
+            />
+            <path
+              fill="currentColor"
+              d="M81.197,166.757v125.612H211.97V166.757H81.197z M189.488,269.888h-85.81v-80.649h85.81V269.888z"
+            />
+            <rect
+              x="260.351"
+              y="166.564"
+              fill="currentColor"
+              width="111.763"
+              height="22.482"
+            />
+            <rect
+              x="260.351"
+              y="222.673"
+              fill="currentColor"
+              width="111.763"
+              height="22.482"
+            />
+            <rect
+              x="260.351"
+              y="278.808"
+              fill="currentColor"
+              width="111.763"
+              height="22.482"
+            />
+            <rect
+              x="81.197"
+              y="334.916"
+              fill="currentColor"
+              width="290.917"
+              height="22.482"
+            />
+          </g>
+        </svg>
+        <p>News</p>
+      </li>
+      <li (click)="redirectToPage('journalists')">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="40px"
+          height="40px"
+          viewBox="0 0 24 24"
+          fill="none"
+        >
+          <circle
+            cx="12"
+            cy="8"
+            r="2.5"
+            stroke="currentColor"
+            stroke-linecap="round"
+          />
+          <path
+            d="M13.7679 6.5C13.9657 6.15743 14.2607 5.88121 14.6154 5.70625C14.9702 5.5313 15.3689 5.46548 15.7611 5.51711C16.1532 5.56874 16.5213 5.73551 16.8187 5.99632C17.1161 6.25713 17.3295 6.60028 17.4319 6.98236C17.5342 7.36445 17.521 7.76831 17.3939 8.14288C17.2667 8.51745 17.0313 8.8459 16.7175 9.08671C16.4037 9.32751 16.0255 9.46985 15.6308 9.49572C15.2361 9.52159 14.8426 9.42983 14.5 9.23205"
+            stroke="currentColor"
+          />
+          <path
+            d="M10.2321 6.5C10.0343 6.15743 9.73935 5.88121 9.38458 5.70625C9.02981 5.5313 8.63113 5.46548 8.23895 5.51711C7.84677 5.56874 7.47871 5.73551 7.18131 5.99632C6.88391 6.25713 6.67053 6.60028 6.56815 6.98236C6.46577 7.36445 6.47899 7.76831 6.60614 8.14288C6.73329 8.51745 6.96866 8.8459 7.28248 9.08671C7.5963 9.32751 7.97448 9.46985 8.36919 9.49572C8.76391 9.52159 9.15743 9.42983 9.5 9.23205"
+            stroke="currentColor"
+          />
+          <path
+            d="M12 12.5C16.0802 12.5 17.1335 15.8022 17.4054 17.507C17.4924 18.0524 17.0523 18.5 16.5 18.5H7.5C6.94771 18.5 6.50763 18.0524 6.59461 17.507C6.86649 15.8022 7.91976 12.5 12 12.5Z"
+            stroke="currentColor"
+            stroke-linecap="round"
+          />
+          <path
+            d="M19.2965 15.4162L18.8115 15.5377L19.2965 15.4162ZM13.0871 12.5859L12.7179 12.2488L12.0974 12.9283L13.0051 13.0791L13.0871 12.5859ZM17.1813 16.5L16.701 16.639L16.8055 17H17.1813V16.5ZM15.5 12C16.5277 12 17.2495 12.5027 17.7783 13.2069C18.3177 13.9253 18.6344 14.8306 18.8115 15.5377L19.7816 15.2948C19.5904 14.5315 19.2329 13.4787 18.578 12.6065C17.9126 11.7203 16.9202 11 15.5 11V12ZM13.4563 12.923C13.9567 12.375 14.6107 12 15.5 12V11C14.2828 11 13.3736 11.5306 12.7179 12.2488L13.4563 12.923ZM13.0051 13.0791C15.3056 13.4614 16.279 15.1801 16.701 16.639L17.6616 16.361C17.1905 14.7326 16.019 12.5663 13.1691 12.0927L13.0051 13.0791ZM18.395 16H17.1813V17H18.395V16ZM18.8115 15.5377C18.8653 15.7526 18.7075 16 18.395 16V17C19.2657 17 20.0152 16.2277 19.7816 15.2948L18.8115 15.5377Z"
+            fill="currentColor"
+          />
+          <path
+            d="M10.9129 12.5859L10.9949 13.0791L11.9026 12.9283L11.2821 12.2488L10.9129 12.5859ZM4.70343 15.4162L5.18845 15.5377L4.70343 15.4162ZM6.81868 16.5V17H7.19453L7.29898 16.639L6.81868 16.5ZM8.49999 12C9.38931 12 10.0433 12.375 10.5436 12.923L11.2821 12.2488C10.6264 11.5306 9.71723 11 8.49999 11V12ZM5.18845 15.5377C5.36554 14.8306 5.68228 13.9253 6.22167 13.2069C6.75048 12.5027 7.47226 12 8.49999 12V11C7.0798 11 6.08743 11.7203 5.42199 12.6065C4.76713 13.4787 4.40955 14.5315 4.21841 15.2948L5.18845 15.5377ZM5.60498 16C5.29247 16 5.13465 15.7526 5.18845 15.5377L4.21841 15.2948C3.98477 16.2277 4.73424 17 5.60498 17V16ZM6.81868 16H5.60498V17H6.81868V16ZM7.29898 16.639C7.72104 15.1801 8.69435 13.4614 10.9949 13.0791L10.8309 12.0927C7.98101 12.5663 6.8095 14.7326 6.33838 16.361L7.29898 16.639Z"
+            fill="currentColor"
+          />
+        </svg>
+        <p>Our Team</p>
+      </li>
+      <li (click)="redirectToPage('about')">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="30px"
+          height="30px"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          version="1.1"
+          id="Icons"
+          viewBox="0 0 32 32"
+          xml:space="preserve"
+        >
+          <style type="text/css">
+            .st0 {
+              fill: none;
+              stroke: currentColor;
+              stroke-width: 2;
+              stroke-linecap: round;
+              stroke-linejoin: round;
+              stroke-miterlimit: 10;
+            }
+          </style>
+          <polygon class="st0" points="4,11 15,18 28,9 17,2 " />
+          <path
+            class="st0"
+            d="M4,11v6l11,7l13-9l0,0c-1.2-1.2-1.5-3-0.7-4.5L28,9"
+          />
+          <path
+            class="st0"
+            d="M4,17v6l11,7l13-9l0,0c-1.2-1.2-1.5-3-0.7-4.5L28,15"
+          />
+        </svg>
+        <p>About</p>
+      </li>
+      <li (click)="redirectToPage('contact')">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="30px"
+          height="30px"
+          viewBox="0 0 24 24"
+          fill="none"
+        >
+          <path
+            d="M3 5.5C3 14.0604 9.93959 21 18.5 21C18.8862 21 19.2691 20.9859 19.6483 20.9581C20.0834 20.9262 20.3009 20.9103 20.499 20.7963C20.663 20.7019 20.8185 20.5345 20.9007 20.364C21 20.1582 21 19.9181 21 19.438V16.6207C21 16.2169 21 16.015 20.9335 15.842C20.8749 15.6891 20.7795 15.553 20.6559 15.4456C20.516 15.324 20.3262 15.255 19.9468 15.117L16.74 13.9509C16.2985 13.7904 16.0777 13.7101 15.8683 13.7237C15.6836 13.7357 15.5059 13.7988 15.3549 13.9058C15.1837 14.0271 15.0629 14.2285 14.8212 14.6314L14 16C11.3501 14.7999 9.2019 12.6489 8 10L9.36863 9.17882C9.77145 8.93713 9.97286 8.81628 10.0942 8.64506C10.2012 8.49408 10.2643 8.31637 10.2763 8.1317C10.2899 7.92227 10.2096 7.70153 10.0491 7.26005L8.88299 4.05321C8.745 3.67376 8.67601 3.48403 8.55442 3.3441C8.44701 3.22049 8.31089 3.12515 8.15802 3.06645C7.98496 3 7.78308 3 7.37932 3H4.56201C4.08188 3 3.84181 3 3.63598 3.09925C3.4655 3.18146 3.29814 3.33701 3.2037 3.50103C3.08968 3.69907 3.07375 3.91662 3.04189 4.35173C3.01413 4.73086 3 5.11378 3 5.5Z"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+        <p>Contact</p>
+      </li>
+    </ul>
+    }
+  </div>
+  <div (click)="redirectToPage('')" class="header_title">
+    <h1>
+      <span class="outer-letter">N</span>
+      <span class="inner-letter">E</span>
+      <span class="inner-letter">W</span>
+      <span class="inner-letter">S</span>
+      <span class="inner-letter">.</span>
+      <span class="inner-letter">C</span>
+      <span class="outer-letter">O</span>
+    </h1>
+  </div>
+  <div (click)="triggerModal()" class="login-button">
+    <button (click)="triggerModal()">
+      @if(logged()) {
+      <div class="logged-div">
+        <svg
+          stroke="currentColor"
+          fill="currentColor"
+          stroke-width="0"
+          viewBox="0 0 512 512"
+          height="30px"
+          width="30px"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M256 48C141.31 48 48 141.31 48 256s93.31 208 208 208 208-93.31 208-208S370.69 48 256 48zm-50.22 116.82C218.45 151.39 236.28 144 256 144s37.39 7.44 50.11 20.94c12.89 13.68 19.16 32.06 17.68 51.82C320.83 256 290.43 288 256 288s-64.89-32-67.79-71.25c-1.47-19.92 4.79-38.36 17.57-51.93zM256 432a175.49 175.49 0 0 1-126-53.22 122.91 122.91 0 0 1 35.14-33.44C190.63 329 222.89 320 256 320s65.37 9 90.83 25.34A122.87 122.87 0 0 1 382 378.78 175.45 175.45 0 0 1 256 432z"
+          ></path>
+        </svg>
+        <h4>Welcome</h4>
+      </div>
+      } @else {
+      <p class="logged-text">Login/Register</p>
+      <svg
+        (click)="triggerModal()"
+        xmlns="http://www.w3.org/2000/svg"
+        width="30px"
+        height="30px"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="m 8 1 c -1.65625 0 -3 1.34375 -3 3 s 1.34375 3 3 3 s 3 -1.34375 3 -3 s -1.34375 -3 -3 -3 z m -1.5 7 c -2.492188 0 -4.5 2.007812 -4.5 4.5 v 0.5 c 0 1.109375 0.890625 2 2 2 h 8 c 1.109375 0 2 -0.890625 2 -2 v -0.5 c 0 -2.492188 -2.007812 -4.5 -4.5 -4.5 z m 0 0"
+          fill="currentColor"
+        />
+      </svg>
+      }
+    </button>
+  </div>
+</header>
+<nav class="header_nav">
+  <ul>
+    <li (click)="redirectToPage('news')">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        version="1.1"
+        viewBox="0 0 512 512"
+        xml:space="preserve"
+        width="30px"
+        height="30px"
+      >
+        <g>
+          <path
+            fill="currentColor"
+            d="M497.946,86.465c-7.768,0-14.055,6.285-14.055,14.054v312.41c-0.012,11.282-9.127,20.368-20.368,20.382H48.477   c-11.241-0.014-20.355-9.1-20.368-20.382V85.668L62.01,99.71c3.416,1.414,7.342,1.414,10.76,0l47.97-19.86l47.955,19.86   c3.417,1.414,7.342,1.414,10.76,0l47.941-19.86l47.943,19.86c3.416,1.414,7.329,1.414,10.746,0l48.01-19.86l48.052,19.86   c3.417,1.414,7.315,1.414,10.734,0l33.996-14.054v296.173c0,7.768,6.286,14.054,14.054,14.054s14.054-6.286,14.054-14.054V64.641   c0-4.693-2.333-9.072-6.244-11.679c-3.899-2.621-8.839-3.116-13.176-1.304l-48.052,19.86l-48.051-19.86   c-3.418-1.426-7.316-1.426-10.734,0l-48.01,19.846l-47.941-19.846c-3.418-1.426-7.344-1.426-10.762,0l-47.942,19.846L126.12,51.658   c-3.432-1.426-7.344-1.426-10.76,0L67.39,71.504L19.434,51.658c-4.351-1.798-9.279-1.317-13.19,1.29   C2.333,55.569,0,59.948,0,64.641V412.93c0,26.791,21.699,48.477,48.477,48.491h415.046c26.778-0.014,48.477-21.7,48.477-48.491   V100.52C512,92.75,505.701,86.465,497.946,86.465z"
+          />
+          <path
+            fill="currentColor"
+            d="M81.197,166.757v125.612H211.97V166.757H81.197z M189.488,269.888h-85.81v-80.649h85.81V269.888z"
+          />
+          <rect
+            x="260.351"
+            y="166.564"
+            fill="currentColor"
+            width="111.763"
+            height="22.482"
+          />
+          <rect
+            x="260.351"
+            y="222.673"
+            fill="currentColor"
+            width="111.763"
+            height="22.482"
+          />
+          <rect
+            x="260.351"
+            y="278.808"
+            fill="currentColor"
+            width="111.763"
+            height="22.482"
+          />
+          <rect
+            x="81.197"
+            y="334.916"
+            fill="currentColor"
+            width="290.917"
+            height="22.482"
+          />
+        </g>
+      </svg>
+      <p>News</p>
+    </li>
+    <li (click)="redirectToPage('journalists')">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="40px"
+        height="40px"
+        viewBox="0 0 24 24"
+        fill="none"
+      >
+        <circle
+          cx="12"
+          cy="8"
+          r="2.5"
+          stroke="currentColor"
+          stroke-linecap="round"
+        />
+        <path
+          d="M13.7679 6.5C13.9657 6.15743 14.2607 5.88121 14.6154 5.70625C14.9702 5.5313 15.3689 5.46548 15.7611 5.51711C16.1532 5.56874 16.5213 5.73551 16.8187 5.99632C17.1161 6.25713 17.3295 6.60028 17.4319 6.98236C17.5342 7.36445 17.521 7.76831 17.3939 8.14288C17.2667 8.51745 17.0313 8.8459 16.7175 9.08671C16.4037 9.32751 16.0255 9.46985 15.6308 9.49572C15.2361 9.52159 14.8426 9.42983 14.5 9.23205"
+          stroke="currentColor"
+        />
+        <path
+          d="M10.2321 6.5C10.0343 6.15743 9.73935 5.88121 9.38458 5.70625C9.02981 5.5313 8.63113 5.46548 8.23895 5.51711C7.84677 5.56874 7.47871 5.73551 7.18131 5.99632C6.88391 6.25713 6.67053 6.60028 6.56815 6.98236C6.46577 7.36445 6.47899 7.76831 6.60614 8.14288C6.73329 8.51745 6.96866 8.8459 7.28248 9.08671C7.5963 9.32751 7.97448 9.46985 8.36919 9.49572C8.76391 9.52159 9.15743 9.42983 9.5 9.23205"
+          stroke="currentColor"
+        />
+        <path
+          d="M12 12.5C16.0802 12.5 17.1335 15.8022 17.4054 17.507C17.4924 18.0524 17.0523 18.5 16.5 18.5H7.5C6.94771 18.5 6.50763 18.0524 6.59461 17.507C6.86649 15.8022 7.91976 12.5 12 12.5Z"
+          stroke="currentColor"
+          stroke-linecap="round"
+        />
+        <path
+          d="M19.2965 15.4162L18.8115 15.5377L19.2965 15.4162ZM13.0871 12.5859L12.7179 12.2488L12.0974 12.9283L13.0051 13.0791L13.0871 12.5859ZM17.1813 16.5L16.701 16.639L16.8055 17H17.1813V16.5ZM15.5 12C16.5277 12 17.2495 12.5027 17.7783 13.2069C18.3177 13.9253 18.6344 14.8306 18.8115 15.5377L19.7816 15.2948C19.5904 14.5315 19.2329 13.4787 18.578 12.6065C17.9126 11.7203 16.9202 11 15.5 11V12ZM13.4563 12.923C13.9567 12.375 14.6107 12 15.5 12V11C14.2828 11 13.3736 11.5306 12.7179 12.2488L13.4563 12.923ZM13.0051 13.0791C15.3056 13.4614 16.279 15.1801 16.701 16.639L17.6616 16.361C17.1905 14.7326 16.019 12.5663 13.1691 12.0927L13.0051 13.0791ZM18.395 16H17.1813V17H18.395V16ZM18.8115 15.5377C18.8653 15.7526 18.7075 16 18.395 16V17C19.2657 17 20.0152 16.2277 19.7816 15.2948L18.8115 15.5377Z"
+          fill="currentColor"
+        />
+        <path
+          d="M10.9129 12.5859L10.9949 13.0791L11.9026 12.9283L11.2821 12.2488L10.9129 12.5859ZM4.70343 15.4162L5.18845 15.5377L4.70343 15.4162ZM6.81868 16.5V17H7.19453L7.29898 16.639L6.81868 16.5ZM8.49999 12C9.38931 12 10.0433 12.375 10.5436 12.923L11.2821 12.2488C10.6264 11.5306 9.71723 11 8.49999 11V12ZM5.18845 15.5377C5.36554 14.8306 5.68228 13.9253 6.22167 13.2069C6.75048 12.5027 7.47226 12 8.49999 12V11C7.0798 11 6.08743 11.7203 5.42199 12.6065C4.76713 13.4787 4.40955 14.5315 4.21841 15.2948L5.18845 15.5377ZM5.60498 16C5.29247 16 5.13465 15.7526 5.18845 15.5377L4.21841 15.2948C3.98477 16.2277 4.73424 17 5.60498 17V16ZM6.81868 16H5.60498V17H6.81868V16ZM7.29898 16.639C7.72104 15.1801 8.69435 13.4614 10.9949 13.0791L10.8309 12.0927C7.98101 12.5663 6.8095 14.7326 6.33838 16.361L7.29898 16.639Z"
+          fill="currentColor"
+        />
+      </svg>
+      <p>Our Team</p>
+    </li>
+    <li (click)="redirectToPage('about')">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="30px"
+        height="30px"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        version="1.1"
+        id="Icons"
+        viewBox="0 0 32 32"
+        xml:space="preserve"
+      >
+        <style type="text/css">
+          .st0 {
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-miterlimit: 10;
+          }
+        </style>
+        <polygon class="st0" points="4,11 15,18 28,9 17,2 " />
+        <path
+          class="st0"
+          d="M4,11v6l11,7l13-9l0,0c-1.2-1.2-1.5-3-0.7-4.5L28,9"
+        />
+        <path
+          class="st0"
+          d="M4,17v6l11,7l13-9l0,0c-1.2-1.2-1.5-3-0.7-4.5L28,15"
+        />
+      </svg>
+      <p>About</p>
+    </li>
+    <li (click)="redirectToPage('contact')">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="30px"
+        height="30px"
+        viewBox="0 0 24 24"
+        fill="none"
+      >
+        <path
+          d="M3 5.5C3 14.0604 9.93959 21 18.5 21C18.8862 21 19.2691 20.9859 19.6483 20.9581C20.0834 20.9262 20.3009 20.9103 20.499 20.7963C20.663 20.7019 20.8185 20.5345 20.9007 20.364C21 20.1582 21 19.9181 21 19.438V16.6207C21 16.2169 21 16.015 20.9335 15.842C20.8749 15.6891 20.7795 15.553 20.6559 15.4456C20.516 15.324 20.3262 15.255 19.9468 15.117L16.74 13.9509C16.2985 13.7904 16.0777 13.7101 15.8683 13.7237C15.6836 13.7357 15.5059 13.7988 15.3549 13.9058C15.1837 14.0271 15.0629 14.2285 14.8212 14.6314L14 16C11.3501 14.7999 9.2019 12.6489 8 10L9.36863 9.17882C9.77145 8.93713 9.97286 8.81628 10.0942 8.64506C10.2012 8.49408 10.2643 8.31637 10.2763 8.1317C10.2899 7.92227 10.2096 7.70153 10.0491 7.26005L8.88299 4.05321C8.745 3.67376 8.67601 3.48403 8.55442 3.3441C8.44701 3.22049 8.31089 3.12515 8.15802 3.06645C7.98496 3 7.78308 3 7.37932 3H4.56201C4.08188 3 3.84181 3 3.63598 3.09925C3.4655 3.18146 3.29814 3.33701 3.2037 3.50103C3.08968 3.69907 3.07375 3.91662 3.04189 4.35173C3.01413 4.73086 3 5.11378 3 5.5Z"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+      <p>Contact</p>
+    </li>
+  </ul>
+</nav>
+<section (click)="triggerModal()" class="modal-overlay" [id]="triggerClass()">
+  <div (click)="$event.stopPropagation()" class="modal-layout">
+    @if (!logged()) {
+
+    <div class="login-register-toggle">
+      <button class="{{ triggerFormLogin() }}" (click)="formToLogin()">
+        Login
+      </button>
+      <button class="{{ triggerFormRegister() }}" (click)="formToRegister()">
+        Register
+      </button>
+    </div>
+    <div class="form-data-toggle">
+      @if(toggleForm) {
+      <form (submit)="onSubmitLogin()" [formGroup]="formLogin">
+        <h2>
+          <span>L</span>
+          <span>o</span>
+          <span>g</span>
+          <span>i</span>
+          <span>n</span>
+        </h2>
+        <label for="login">
+          <span>Username: </span>
+          <input type="text" id="login" formControlName="username" />
+          @if (submittedLogin && l['username'].errors) {
+          <div class="errors-message">
+            @if (l['username'].errors['required']) {
+            <small class="message-error">Username is required.</small>
+            }
+          </div>
+          }
+        </label>
+        <label for="password">
+          <span>Password: </span>
+          <input type="password" id="password" formControlName="password" />
+          @if (submittedLogin && l['password'].errors) {
+          <div class="errors-message">
+            @if (l['password'].errors['required']) {
+            <small class="message-error">Password is required.</small>
+            }
+          </div>
+          }
+        </label>
+        <button
+          [disabled]="submittedLogin"
+          (submit)="onSubmitLogin()"
+          type="submit"
+        >
+          Submit
+        </button>
+      </form>
+      } @else {
+      <form (submit)="onSubmitRegister()" [formGroup]="form">
+        <h2>
+          <span>R</span>
+          <span>e</span>
+          <span>g</span>
+          <span>i</span>
+          <span>s</span>
+          <span>t</span>
+          <span>e</span>
+          <span>r</span>
+        </h2>
+        <label for="email">
+          <span>Email: </span>
+          <input formControlName="email" type="text" id="email" />
+          @if (submitted && f['email'].errors) {
+          <div class="errors-message">
+            @if (f['email'].errors['required']) {
+            <small class="message-error"> Email is required.</small>
+            } @if (f['email'].errors['email']) {
+            <small class="message-error">Invalid email.</small>
+            }
+          </div>
+          }
+        </label>
+        <label>
+          <span>Username: </span>
+          <input type="text" id="username" formControlName="username" />
+          @if (submitted && f['username'].errors) {
+          <div class="errors-message">
+            @if (f['username'].errors['required']) {
+            <small class="message-error">Username is required.</small>
+            } @if (f['username'].errors['maxlength']) {
+            <small class="message-error"
+              >Max length reached: 30 characters.</small
+            >
+            } @if (f['username'].errors['minlength']) {
+            <small class="message-error"
+              >Must have at least 10 characters.</small
+            >
+            } @if (f['username'].errors['hasUppercase']) {
+            <small class="message-error"
+              >Username must have at least one uppercase letter</small
+            >
+            }
+          </div>
+          }
+        </label>
+        <label for="password">
+          <span>Password: </span>
+          <input type="text" id="password" formControlName="password" />
+          @if ( submitted && f['password'].errors) {
+          <div class="errors-message">
+            @if (f['password'].errors['required']) {
+            <small class="message-error">Password is required.</small>
+            } @if (f['password'].errors['maxlength']) {
+            <small class="message-error"
+              >Max length reached: 30 characters.</small
+            >
+            } @if (f['password'].errors['minlength']) {
+            <small class="message-error"
+              >Must have at least 10 characters.</small
+            >
+            } @if (f['password'].errors['hasUppercase']) {
+            <small class="message-error"
+              >Password must have at least one uppercase letter.</small
+            >
+            }@if (f['password'].errors['hasNumber']) {
+            <small class="message-error"
+              >Password must have at least one number.</small
+            >
+            }
+          </div>
+          }
+        </label>
+        <label for="confirm">
+          <span>Confirm: </span>
+          <input type="text" id="confirm" formControlName="confirmPassword" />
+          @if (submitted && f['confirmPassword'].errors) {
+          <div class="errors-message">
+            @if (f['confirmPassword'].errors['required']) {
+            <small class="message-error">Confirm your password</small>
+            } @if (f['confirmPassword'].errors['matching']) {
+            <small class="message-error">The password must match.</small>
+            }
+          </div>
+          }
+        </label>
+        <button
+          [disabled]="submitted"
+          (click)="onSubmitRegister()"
+          type="submit"
+        >
+          Submit
+        </button>
+      </form>
+      }
+    </div>
+    }@else {
+    <div id="logout-modal">
+      <h1>Logout?</h1>
+      <div class="logout-buttons">
+        <button (click)="logout()">Yes</button>
+        <h4>or</h4>
+        <button (click)="triggerModal()">No</button>
+      </div>
+    </div>
+    }
+  </div>
+</section>

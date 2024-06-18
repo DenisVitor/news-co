@@ -1,0 +1,493 @@
+main {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  padding: 10dvh 0;
+  .previous-next-news {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 15dvw;
+    margin: 2rem 0;
+    border-top: 1px solid blue;
+    border-bottom: 1px solid blue;
+    @media screen and (max-width: 600px) {
+      flex-direction: column;
+      gap: 2rem;
+      padding: 2rem 0;
+      .data-news-next, .data-news-prev {
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        h4 {
+          text-align: center;
+
+        }
+      }
+    }
+    .data-news-next {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+      text-align: end;
+      max-width: 30dvw;
+
+      h3 {
+        color: blue;
+      }
+      small {
+        font-weight: 500;
+        padding-right: 0.5rem;
+        border-right: 3px solid blue;
+      }
+      h4 {
+        cursor: pointer;
+        transition: 0.1s ease;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid blue;
+        &:hover {
+          color: blue;
+          text-decoration: underline;
+        }
+        &:active {
+          color: black;
+        }
+      }
+      p {
+        font-size: 13px;
+        font-weight: 500;
+        text-align: center;
+      }
+    }
+    .data-news-prev {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+      max-width: 30dvw;
+      h3 {
+        color: blue;
+      }
+      small {
+        font-weight: 500;
+        padding-left: 0.5rem;
+        border-left: 3px solid blue;
+      }
+      h4 {
+        cursor: pointer;
+        transition: 0.1s ease;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid blue;
+        &:hover {
+          color: blue;
+          text-decoration: underline;
+        }
+        &:active {
+          color: black;
+        }
+      }
+      p {
+        font-size: 13px;
+        font-weight: 500;
+        text-align: center;
+      }
+    }
+  }
+  .news-title-sec {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    .news-image {
+      width: 70dvw;
+      height: 60dvh;
+      object-fit: cover;
+    }
+    .news-title-data {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      align-items: center;
+      justify-content: center;
+      h1 {
+        font-size: 40px;
+        padding: 0 15dvw;
+        text-align: center;
+        font-weight: 300;
+        @media screen and (max-width: 700px) {
+          font-size: 28px;
+        }
+      }
+      h3 {
+        color: darkgray;
+        @media screen and (max-width: 700px) {
+          text-align: center;
+        }
+      }
+    }
+    .news-title-journalist {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      width: 100%;
+      padding: 2rem 0;
+      border-top: 1px solid darkgray;
+      img {
+        width: 7rem;
+        height: 7rem;
+        object-fit: cover;
+        object-position: top;
+        border-radius: 255px;
+      }
+      .journo-caption {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        h2 {
+          cursor: pointer;
+          transition: 0.1s ease;
+          &:hover {
+            color: blue;
+            text-decoration: underline;
+          }
+          &:active {
+            color: black;
+          }
+        }
+        p {
+          font-weight: 600;
+          padding-left: 0.4rem;
+          border-left: 3px solid blue;
+        }
+      }
+    }
+  }
+  .news-context {
+    display: flex;
+    flex-direction: column;
+    .news-context-text {
+      padding: 2rem 15dvw;
+      text-align: center;
+      font-size: 17px;
+      font-weight: 300;
+      word-spacing: 0.2rem;
+      font-style: italic;
+    }
+    .lorem-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      text-align: center;
+      padding: 3rem 15dvw;
+      font-size: 17px;
+      font-weight: 500;
+    }
+  }
+  .review-sec {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 3dvh 0;
+    .share-review-div {
+      display: flex;
+      justify-content: space-around;
+
+      padding: 3rem 0;
+      border-top: 1px solid lightgray;
+      border-bottom: 1px solid lightgray;
+      .review-part {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+
+        #review-create {
+          font-style: 15px;
+          padding: 0.5rem 1.5rem;
+          font-weight: 500;
+        }
+      }
+    }
+    button {
+      display: flex;
+      align-self: center;
+      width: fit-content;
+      font-size: 21px;
+      font-weight: 600;
+      padding: 0.5rem;
+      background-color: blue;
+      color: white;
+      border-radius: 1rem;
+      cursor: pointer;
+      transition: 0.1s ease;
+      &:hover {
+        background-color: black;
+      }
+      &:active {
+        color: black;
+        background-color: white;
+      }
+    }
+  }
+  .review-sec-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin: 2dvh 0;
+    padding: 2dvh 4rem;
+    max-height: 40dvh;
+    overflow-y: auto;
+    &::-webkit-scrollbar {
+      appearance: none;
+      width: 10px;
+    }
+    &::-webkit-scrollbar-track {
+      border-radius: 0.3rem;
+      background-color: lightgray;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: blue;
+      border-radius: 0.3rem;
+      &:hover {
+        background-color: black;
+      }
+    }
+
+    li {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      @media screen and (max-width: 400px) {
+        flex-direction: column;
+      }
+      .review-div-one {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+        justify-content: center;
+        width: 5rem;
+        img {
+          width: 5rem;
+          height: 5rem;
+          border-radius: 255px;
+          object-fit: cover;
+          object-position: top;
+        }
+      }
+      .review-div-two {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+        p {
+          padding-left: 0.4rem;
+        }
+      }
+    }
+  }
+}
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba($color: #000000, $alpha: 0.6);
+}
+#hidden-modal {
+  display: none;
+}
+#show-modal {
+  display: flex;
+}
+.modal-unlogged-layout {
+  background-color: white;
+  height: fit-content;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+  animation: show-up 0.5s ease none;
+  svg {
+    color: blue;
+  }
+  h1 {
+    font-size: 18px;
+    font-weight: 400;
+  }
+  button {
+    display: flex;
+    align-self: end;
+
+    font-size: 21px;
+    font-weight: 600;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    transition: 0.1s ease;
+    &:hover {
+      color: blue;
+    }
+    &:active {
+      color: black;
+    }
+  }
+  #close-button {
+    display: flex;
+    align-self: center;
+    width: fit-content;
+    font-size: 21px;
+    font-weight: 600;
+    padding: 0.5rem;
+    background-color: black;
+    color: white;
+    border-radius: 1rem;
+    cursor: pointer;
+    transition: 0.1s ease;
+    &:hover {
+      background-color: blue;
+    }
+    &:active {
+      color: white;
+      background-color: blue;
+    }
+  }
+  .button-delete-list {
+    display: flex;
+    gap: 0.5rem;
+  }
+}
+@keyframes show-up {
+  from {
+    opacity: 0;
+    transform: scale(0.1);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.modal-logged-layout {
+  background-color: white;
+  height: fit-content;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  align-items: center;
+  justify-content: center;
+  animation: show-up 0.5s ease none;
+  .logged-title {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 1rem;
+    align-items: center;
+    #logged-title-button {
+      background-color: white;
+      color: black;
+      cursor: pointer;
+      transition: 0.1s ease;
+      &:hover {
+        background-color: transparent;
+        color: blue;
+      }
+      &:active {
+        color: black;
+      }
+    }
+  }
+  textarea {
+    outline: 1px solid blue;
+    border: none;
+    padding: 0.6rem;
+  }
+  h1 {
+    font-size: 20px;
+    font-weight: 500;
+  }
+  button {
+    display: flex;
+    align-self: center;
+    width: fit-content;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 0.5rem;
+    background-color: blue;
+    color: white;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: 0.1s ease;
+    &:hover {
+      background-color: black;
+    }
+    &:active {
+      color: black;
+      background-color: white;
+    }
+    &:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+      &:hover {
+        background-color: blue($color: #000000);
+      }
+      &:active {
+        background-color: blue;
+        color: white;
+      }
+    }
+  }
+}
+.review-modify-delete {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  justify-content: space-around;
+  flex-grow: 1;
+  height: 100%;
+  svg {
+    cursor: pointer;
+    transition: 0.1s ease;
+    &:hover {
+      color: blue;
+      transform: scale(1.06);
+    }
+    &:active {
+      color: black;
+      transform: scale(1);
+    }
+  }
+}
+#close-review {
+  display: flex;
+  width: 5rem;
+  background-color: blue;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  justify-self: center;
+  align-self: center;
+  margin: 0 auto;
+  font-size: 15px;
+  font-weight: 500;
+  &:hover {
+    background-color: black;
+    text-decoration: underline;
+    color: white;
+  }
+  &:active {
+    color: blue;
+    background-color: white;
+  }
+}

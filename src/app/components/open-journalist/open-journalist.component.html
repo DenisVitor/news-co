@@ -1,0 +1,104 @@
+<main>
+  <section class="journo-sec">
+    <img src="{{ journo.avatar }}" alt="" />
+    <div class="journo-request-data">
+      <h1>{{ journo.name }}</h1>
+      <h4>{{ journo.email }}</h4>
+      <p>{{ journo.role }}</p>
+    </div>
+    <div class="journo-default-data">
+      <div class="journo-phone">
+        <h3>Phone</h3>
+        <p>(999) 999-9999</p>
+      </div>
+      <div class="journo-faculty">
+        <h3>Institutions</h3>
+        <ul class="faculty-list">
+          <li>
+            <h4>Doe University</h4>
+            <p>Journalism</p>
+          </li>
+          <li>
+            <h4>Did Institution</h4>
+            <p>{{ capitalize(journo.role.toString()) }} analyst</p>
+          </li>
+        </ul>
+      </div>
+      <div class="journo-location">
+        <h3>Location</h3>
+        <p>That City, DC</p>
+      </div>
+    </div>
+  </section>
+  <section class="journo-text-data">
+    <div class="journo-about">
+      <h1>History</h1>
+      <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit
+        quasi magni quos explicabo ipsa consequuntur ducimus autem quae sint,
+        dolore voluptatibus incidunt a velit eveniet beatae, repellendus
+        sapiente! Voluptates, laudantium! Possimus magnam repudiandae
+        perspiciatis minima optio, odit tempore recusandae earum? A, esse. Nisi,
+        nulla nemo illum, adipisci at deleniti eius nesciunt a tempore officiis
+        obcaecati nam impedit harum expedita ut! Vitae sunt repellendus natus ut
+        accusamus, tempore similique autem blanditiis soluta excepturi explicabo
+        eveniet molestias veritatis dolores quisquam officia laboriosam tenetur
+        reprehenderit ab sint aliquam inventore? Natus maxime ipsa optio. Veniam
+        molestiae architecto suscipit possimus ea. Doloremque aut officiis
+        quaerat quia harum ex earum tenetur laboriosam aliquam expedita beatae
+        enim maiores consectetur tempore eum dolorem minus ratione consequuntur,
+        dignissimos at.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos beatae
+        nobis impedit hic laboriosam adipisci laudantium molestias aliquam sunt?
+        Non consequatur similique nihil architecto illo, labore neque est
+        recusandae nemo. Voluptatum veritatis quis quos, possimus exercitationem
+        voluptas beatae iste voluptatibus nemo impedit ratione laboriosam culpa
+        nam sapiente suscipit, natus, vel excepturi! Ullam quas cupiditate
+        laborum a explicabo voluptatum dignissimos. Voluptatibus? Ex aliquam,
+        tenetur optio iusto totam a doloremque nesciunt nemo aut, deserunt
+        provident tempora consectetur ipsa veritatis ab nisi perspiciatis odio?
+        Necessitatibus doloremque ab voluptate aliquam laboriosam aliquid sed
+        atque. Aut omnis voluptate sapiente, neque ipsam ea voluptatem iste, rem
+        laboriosam consectetur, perferendis odit dolorem sint fugiat quae. Quasi
+        quam nesciunt fugit nulla id quis distinctio maiores repellat ipsam
+        vero. Recusandae praesentium iusto vel molestiae deleniti repellendus,
+        quae aut, non labore omnis aperiam aspernatur modi veniam libero tenetur
+        fugiat commodi voluptates qui nihil maiores? Ad modi error cum doloribus
+        quam. Aut quasi eligendi incidunt officiis vero nobis temporibus velit
+        aliquid veritatis placeat perferendis ipsa odit labore distinctio sed
+        repudiandae laboriosam, quia facilis, voluptatibus esse! Magnam
+        consectetur commodi maxime aliquam rem? Consequuntur ipsa tempore
+        doloribus perferendis voluptatum laboriosam? Quisquam, hic dignissimos
+        at non eius perspiciatis magnam fuga et consequatur reprehenderit iure
+        vel cupiditate error corrupti. Autem laborum odio quod possimus ipsam.
+        Corporis similique suscipit distinctio nemo sit? Recusandae voluptatibus
+        nihil libero, asperiores neque minima illo architecto repellendus eaque
+        nostrum! Aperiam natus aliquid non reprehenderit architecto minima
+        possimus quisquam id obcaecati porro.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident fuga
+        assumenda dolore corporis ex excepturi nisi in, aliquid eius pariatur et
+        iste repellat vitae tempore porro esse nobis rerum consequuntur! Non,
+        pariatur, voluptatibus laborum fugiat officia itaque, rem vel architecto
+        velit laudantium libero. Voluptates odit nostrum quisquam at! Quidem
+        harum deleniti quo similique magnam dolorem molestiae quasi assumenda ad
+        unde. Odio reprehenderit quam enim aliquid sequi minus, esse libero
+        fugiat deserunt beatae quis qui quibusdam molestias voluptates
+        doloremque dolores reiciendis officia natus, quidem ullam. Ut mollitia
+        officia autem sapiente similique.
+      </p>
+    </div>
+    <ul class="news-list">
+      @for (item of journo.news_related; track item.id) {
+      <li>
+        <img src="{{ item.image }}" alt="" />
+        <h2 (click)="goToNews(item.id)">{{ item.title }}</h2>
+        <p>{{ item.subtitle }}</p>
+      </li>
+      }
+    </ul>
+  </section>
+</main>

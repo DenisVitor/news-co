@@ -1,0 +1,344 @@
+<main>
+  <section class="news-title-sec">
+    <img
+      class="news-image"
+      src="{{ selectedNews.image }}"
+      alt="{{ selectedNews.title }}"
+    />
+    <div class="news-title-data">
+      <h1>{{ selectedNews.title }}</h1>
+      <h3>{{ selectedNews.subtitle }}</h3>
+    </div>
+    <div class="news-title-journalist">
+      <div class="journo-data">
+        <img
+          class="journo-img"
+          src="{{ selectedNews.journalist_related.avatar }}"
+          alt="{{ selectedNews.journalist_related.name }}"
+        />
+        <div class="journo-caption">
+          <h2 (click)="goToJourno(selectedNews.journalist_related.id)">
+            {{ selectedNews.journalist_related.name }}
+          </h2>
+          <p class="news-type">{{ selectedNews.type }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="previous-next-news">
+    @if (previousNews) {
+    <div class="data-news-prev">
+      <h3>Previous</h3>
+      <small>{{ previousNews.type }}</small>
+      <h4 (click)="goToNews(previousNews.id)">{{ previousNews.title }}</h4>
+      <p>{{ previousNews.subtitle }}</p>
+    </div>
+    } @if (nextNews) {
+    <div class="data-news-next">
+      <h3>Next</h3>
+      <small>{{ nextNews.type }}</small>
+      <h4 (click)="goToNews(nextNews.id)">{{ nextNews.title }}</h4>
+      <p>{{ nextNews.subtitle }}</p>
+    </div>
+    }
+  </section>
+  <section class="news-context">
+    <p class="news-context-text">
+      {{ selectedNews.content }}
+    </p>
+    <div class="lorem-text">
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque saepe
+        sunt delectus cumque rem minus ipsa, consequatur quaerat, accusantium
+        quae labore enim maiores nostrum reprehenderit iste ipsum quidem, omnis
+        nobis! Doloribus repellendus nemo nostrum nisi cumque dolorum nam fugiat
+        voluptatibus iure aliquam iste id enim atque illum doloremque neque quas
+        assumenda in reprehenderit magnam, soluta fuga.
+      </p>
+      <p>
+        Eum fugiat dicta delectus? Dicta, dolores similique. Aspernatur
+        repellendus maxime placeat, aliquam adipisci excepturi numquam suscipit
+        quam non, aliquid dolores commodi quas doloribus vero repellat ab
+        tempora iste deleniti libero reprehenderit. Eius, dolor aperiam?
+        Doloribus quis harum id corrupti nihil ipsam dolorum fugit voluptas quas
+        fugiat aspernatur possimus molestiae iure, iusto voluptatem, voluptatum
+        esse saepe officiis voluptatibus? Nulla iste molestiae ad. Dolorem,
+        placeat odit.
+      </p>
+      <p>
+        eos quidem molestias a iure necessitatibus nam nobis assumenda ea fugiat
+        repellendus deserunt saepe harum impedit voluptatem ratione fuga dolorem
+        odit. Quasi. Magnam voluptas quibusdam, explicabo cupiditate ipsum nulla
+        non asperiores ullam! Minima enim accusamus repellat exercitationem illo
+        ut quasi praesentium atque, doloribus blanditiis libero cumque quidem,
+        optio molestiae assumenda natus quia. Voluptatem beatae laboriosam
+        excepturi ab aut deleniti iure corrupti nesciunt harum praesentium. Est
+        incidunt eius esse eos exercitationem hic, quia iusto architecto
+        veritatis placeat? Iusto ipsum nulla illo magnam. Dolorem? Minus quos
+        neque eligendi quo veritatis ullam velit mollitia magni nemo rem ab
+        impedit, exercitationem quidem iure, totam repudiandae nobis natus
+        incidunt, laudantium eius dolor molestiae!
+      </p>
+      <p>
+        Delectus repudiandae vero, dolores quasi unde minima consequuntur Beatae
+        assumenda quam accusamus. Velit, corporis accusantium? Id itaque optio
+        ea commodi aliquid odit, dicta repellat! Tenetur temporibus iure eum ea
+        voluptatum, eveniet molestiae consequatur non cupiditate tempore
+        praesentium assumenda aliquam rerum porro esse! Culpa consequuntur
+        placeat blanditiis quod amet, exercitationem repellendus animi id
+        quibusdam, in ad, eveniet delectus corrupti soluta recusandae aut
+        explicabo obcaecati atque? Itaque, exercitationem alias numquam
+        perferendis deleniti veritatis aliquam. Voluptatum quod odit officiis
+        amet, exercitationem laboriosam culpa non vel illo dicta veniam
+        explicabo autem earum architecto, voluptates atque iusto.
+      </p>
+      <p>
+        Fuga velit expedita temporibus corporis deserunt consectetur doloribus,
+        eaque ab. Sint, quidem aliquam! Earum, expedita molestias sed veritatis
+        pariatur delectus iusto voluptatum sunt, dolor ab vitae temporibus
+        beatae eum, laboriosam quos qui necessitatibus quod suscipit quam
+        incidunt maiores! Odit, totam. Itaque laborum magnam cupiditate officiis
+        necessitatibus aspernatur, veniam quasi, enim temporibus, nobis dicta
+        sint animi vitae nostrum! Iusto illo obcaecati voluptatem maxime, quae
+        dignissimos veritatis hic debitis quod sit est! Facere voluptate
+        repellat omnis quo facilis quibusdam temporibus voluptas officia
+        perferendis vitae deserunt ex reprehenderit quis dolores repudiandae
+        nulla illo eos, quae accusamus et necessitatibus.
+      </p>
+      <p>
+        Dolorum placeat totam iste tempore. Architecto rerum aliquam expedita
+        recusandae, libero, dolore assumenda nesciunt eos nam magni eius eveniet
+        voluptate dolorem sapiente quam illum aut sit quia maiores. Facere
+        repellat quae suscipit explicabo libero non. Aperiam id quia eius in
+        magnam optio eaque numquam. Molestias excepturi ad iusto unde. Sed
+        corrupti expedita cumque nemo doloribus magni eligendi? Quia commodi,
+        porro possimus dolorem laudantium libero aut? Nobis dolore ex illum
+        sapiente molestias dolorum neque eligendi, officiis veritatis amet non
+        illo quasi, temporibus voluptas sit perferendis quas, iste aliquid
+        minus? Odio veritatis, deleniti nam impedit soluta commodi? Veritatis
+        aspernatur possimus ut ab, labore nam aliquam non perferendis mollitia
+        autem voluptas alias eveniet distinctio, natus unde doloribus et id
+        odit. Nesciunt excepturi debitis adipisci repudiandae voluptates aperiam
+        expedita? Alias quibusdam voluptatum esse voluptatibus consequatur
+        veritatis, soluta recusandae consectetur officia ratione sapiente
+        itaque, ipsum quia, ea sit? Soluta quam quidem quia.
+      </p>
+      <p>
+        Consectetur quo temporibus dolores ullam non facere doloribus! Modi
+        corrupti expedita enim maiores quos iusto! Asperiores deleniti beatae
+        consequuntur quis, iusto exercitationem quidem itaque reiciendis qui
+        labore aut dolore vero assumenda quas dignissimos fugiat repellendus
+        saepe soluta unde? Voluptate vel laudantium sequi natus voluptatem! Fuga
+        ipsam quidem amet enim atque dolorum inventore nobis commodi incidunt
+        corporis quasi placeat, sunt esse non dignissimos? Vero minima laborum
+        cupiditate incidunt quidem! Expedita, eaque recusandae. Minus iste
+        quibusdam tempore modi quasi neque illo non exercitationem ullam ipsam
+        dolorem fugiat facilis aliquid aut quo alias placeat, autem numquam.
+      </p>
+      <p>
+        Recusandae rerum voluptates beatae commodi. Perferendis, accusamus magni
+        vel obcaecati inventore nesciunt, repudiandae laborum tempore asperiores
+        maxime delectus ipsam unde. Sed atque facere hic vitae, mollitia officia
+        obcaecati. At illum tenetur quos, nemo tempore in. Perspiciatis placeat,
+        ullam minus ad eveniet rerum quae vitae debitis vero magnam sed
+        cupiditate est accusamus ex impedit at neque recusandae laudantium
+        nostrum accusantium voluptatum deserunt aut labore.
+      </p>
+      <p>
+        Enim, eos? Sed, excepturi dolore, magni sunt ipsam asperiores culpa
+        consectetur eveniet voluptatibus ducimus totam. Magni, maxime
+        consequuntur? Placeat, sunt id eaque illum aspernatur quasi, hic
+        dignissimos quia minus eius labore nulla!
+      </p>
+    </div>
+  </section>
+
+  <section class="review-sec">
+    <div class="share-review-div">
+      <div class="review-part">
+        <button id="review-create" (click)="togglePost()">
+          Leave your review
+        </button>
+      </div>
+    </div>
+    <ul class="review-sec-list">
+      @for (review of reviewList; track review.id) {
+      <li>
+        <div class="review-div-one">
+          @if (review.viewer_posted.avatar) {
+
+          <img
+            src="{{ review.viewer_posted.avatar }}"
+            alt="{{ review.viewer_posted.username }}"
+          />
+          } @else {
+          <svg
+            stroke="currentColor"
+            fill="currentColor"
+            stroke-width="0"
+            viewBox="0 0 512 512"
+            height="4rem"
+            width="4rem"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M256 48C141.31 48 48 141.31 48 256s93.31 208 208 208 208-93.31 208-208S370.69 48 256 48zm-50.22 116.82C218.45 151.39 236.28 144 256 144s37.39 7.44 50.11 20.94c12.89 13.68 19.16 32.06 17.68 51.82C320.83 256 290.43 288 256 288s-64.89-32-67.79-71.25c-1.47-19.92 4.79-38.36 17.57-51.93zM256 432a175.49 175.49 0 0 1-126-53.22 122.91 122.91 0 0 1 35.14-33.44C190.63 329 222.89 320 256 320s65.37 9 90.83 25.34A122.87 122.87 0 0 1 382 378.78 175.45 175.45 0 0 1 256 432z"
+            ></path>
+          </svg>
+          }
+          <h4 class="viewer-username">{{ review.viewer_posted.username }}</h4>
+        </div>
+        <div class="review-div-two">
+          <h4 class="review-title">{{ selectedNews.title }}</h4>
+          <p>{{ review.review }}</p>
+        </div>
+        @if(review.owned) {
+        <div class="review-modify-delete">
+          <svg
+            (click)="triggerPatch()"
+            stroke="currentColor"
+            fill="currentColor"
+            stroke-width="0"
+            viewBox="0 0 512 512"
+            height="20px"
+            width="20px"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M497.9 142.1l-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3 0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9 0l60.1 60.1c18.8 18.7 18.8 49.1 0 67.9zM284.2 99.8L21.6 362.4.4 483.9c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3 0-17l-111-111c-4.8-4.7-12.4-4.7-17.1 0zM124.1 339.9c-5.5-5.5-5.5-14.3 0-19.8l154-154c5.5-5.5 14.3-5.5 19.8 0s5.5 14.3 0 19.8l-154 154c-5.5 5.5-14.3 5.5-19.8 0zM88 424h48v36.3l-64.5 11.3-31.1-31.1L51.7 376H88v48z"
+            ></path>
+          </svg>
+          <svg
+            (click)="triggerDelete()"
+            stroke="currentColor"
+            fill="currentColor"
+            stroke-width="0"
+            viewBox="0 0 448 512"
+            height="20px"
+            width="20px"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M268 416h24a12 12 0 0 0 12-12V188a12 12 0 0 0-12-12h-24a12 12 0 0 0-12 12v216a12 12 0 0 0 12 12zM432 80h-82.41l-34-56.7A48 48 0 0 0 274.41 0H173.59a48 48 0 0 0-41.16 23.3L98.41 80H16A16 16 0 0 0 0 96v16a16 16 0 0 0 16 16h16v336a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48V128h16a16 16 0 0 0 16-16V96a16 16 0 0 0-16-16zM171.84 50.91A6 6 0 0 1 177 48h94a6 6 0 0 1 5.15 2.91L293.61 80H154.39zM368 464H80V128h288zm-212-48h24a12 12 0 0 0 12-12V188a12 12 0 0 0-12-12h-24a12 12 0 0 0-12 12v216a12 12 0 0 0 12 12z"
+            ></path>
+          </svg>
+        </div>
+        }
+      </li>
+      }
+    </ul>
+  </section>
+</main>
+<div class="modal-overlay" [id]="triggerClass()" (click)="triggerModal()">
+  @if (logged() && !postedReview && !endReview) {
+  <form
+    (click)="$event.stopPropagation()"
+    class="modal-logged-layout"
+    [formGroup]="formReview"
+  >
+    <div class="logged-title">
+      <h1>Leave your review</h1>
+      <button type="button" id="logged-title-button" (click)="triggerModal()">
+        X
+      </button>
+    </div>
+    <textarea formControlName="review" cols="50" rows="10"></textarea>
+    @if(submitted && err['review'].errors){
+    <div>
+      @if(err['review'].errors['required']) {
+      <small>You must insert your review first</small>
+      }
+    </div>
+    }
+    <button [disabled]="submitted" (click)="postReview()" type="submit">
+      Submit
+    </button>
+  </form>
+  } @else if(!logged()) {
+  <div (click)="$event.stopPropagation()" class="modal-unlogged-layout">
+    <svg
+      stroke="currentColor"
+      fill="currentColor"
+      stroke-width="0"
+      viewBox="0 0 24 24"
+      height="150px"
+      width="150px"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path fill="none" d="M0 0h24v24H0V0z"></path>
+      <path
+        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM4 12c0-4.42 3.58-8 8-8 1.85 0 3.55.63 4.9 1.69L5.69 16.9A7.902 7.902 0 0 1 4 12zm8 8c-1.85 0-3.55-.63-4.9-1.69L18.31 7.1A7.902 7.902 0 0 1 20 12c0 4.42-3.58 8-8 8z"
+      ></path>
+    </svg>
+    <h1>You need to be logged to leave an review</h1>
+    <button id="close-review" (click)="triggerModal()">Close</button>
+  </div>
+  } @else if (postedReview && !patchReview && !deleteReview) {
+  <div (click)="$event.stopPropagation()" class="modal-unlogged-layout">
+    <svg
+      stroke="currentColor"
+      fill="currentColor"
+      stroke-width="0"
+      viewBox="0 0 24 24"
+      height="150px"
+      width="150px"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M7.638 2.22a.749.749 0 0 1 .53-.22h7.664c.199 0 .389.079.53.22l5.418 5.418c.141.14.22.332.22.53v7.664a.749.749 0 0 1-.22.53l-5.418 5.418a.749.749 0 0 1-.53.22H8.168a.749.749 0 0 1-.53-.22l-5.42-5.418a.752.752 0 0 1-.219-.53V8.168c0-.199.079-.389.22-.53l5.418-5.42ZM8.48 3.5 3.5 8.48v7.04l4.98 4.98h7.04l4.98-4.98V8.48L15.52 3.5ZM7 11.75a.75.75 0 0 1 .75-.75h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1-.75-.75Z"
+      ></path>
+    </svg>
+    <h1>You already posted an review on this news</h1>
+    <button id="close-review" (click)="triggerModal()">Close</button>
+  </div>
+  } @else if(logged() && postedReview && patchReview) {
+  <div class="patch-review">
+    <form
+      (click)="$event.stopPropagation()"
+      class="modal-logged-layout"
+      [formGroup]="formReview"
+    >
+      <div class="logged-title">
+        <h1>Change your review</h1>
+        <button type="button" id="logged-title-button" (click)="triggerModal()">
+          X
+        </button>
+      </div>
+      <textarea formControlName="review" cols="50" rows="10"></textarea>
+      @if(submitted && err['review'].errors){
+      <div>
+        @if(err['review'].errors['required']) {
+        <small>You must insert your review first</small>
+        }
+      </div>
+      }
+      <button [disabled]="submitted" (click)="patchReviewFunc()" type="submit">
+        Submit
+      </button>
+    </form>
+  </div>
+  } @else if (logged() && postedReview && deleteReview) {
+  <div class="modal-unlogged-layout">
+    <svg
+      stroke="currentColor"
+      fill="currentColor"
+      stroke-width="0"
+      version="1.2"
+      baseProfile="tiny"
+      viewBox="0 0 24 24"
+      height="150px"
+      width="150px"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M12 3c-4.963 0-9 4.038-9 9s4.037 9 9 9 9-4.038 9-9-4.037-9-9-9zm0 16c-3.859 0-7-3.14-7-7s3.141-7 7-7 7 3.14 7 7-3.141 7-7 7zM12.707 12l2.646-2.646c.194-.194.194-.512 0-.707-.195-.194-.513-.194-.707 0l-2.646 2.646-2.646-2.647c-.195-.194-.513-.194-.707 0-.195.195-.195.513 0 .707l2.646 2.647-2.646 2.646c-.195.195-.195.513 0 .707.097.098.225.147.353.147s.256-.049.354-.146l2.646-2.647 2.646 2.646c.098.098.226.147.354.147s.256-.049.354-.146c.194-.194.194-.512 0-.707l-2.647-2.647z"
+      ></path>
+    </svg>
+    <h1>Wanna delete this review?</h1>
+    <div class="button-delete-list">
+      <button id="delete-button" (click)="deleteReviewFunc()">Delete</button>
+      <button id="close-button" (click)="triggerDelete()">Close</button>
+    </div>
+  </div>
+  }
+</div>

@@ -1,0 +1,123 @@
+main {
+  display: flex;
+  flex-direction: column;
+  width: 100dvw;
+  gap: 2rem;
+}
+
+.news-sec {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 6dvh 0;
+  gap: 6rem;
+}
+.news-sec .news-title h1 {
+  padding: 0 2rem;
+  border-left: 4px solid red;
+}
+.news-sec nav {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.news-sec nav ul {
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+}
+.news-sec nav ul .hide-button {
+  display: none;
+}
+.news-sec nav ul .show-button {
+  display: flex;
+}
+.news-sec nav ul svg {
+  cursor: pointer;
+  transition: 0.1s ease;
+}
+.news-sec nav ul svg:hover {
+  color: red;
+}
+.news-sec nav ul svg:active {
+  color: black;
+}
+.news-sec nav ul li {
+  cursor: pointer;
+  transition: 0.1s ease;
+}
+.news-sec nav ul li:hover {
+  font-weight: 600;
+  padding-left: 0.3rem;
+  border-left: 3px solid red;
+}
+.news-sec nav ul li:active {
+  color: red;
+}
+
+.news-sec-list {
+  display: flex;
+  width: 100%;
+}
+
+.news-list {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  margin-bottom: 7dvh;
+}
+.news-list li {
+  display: flex;
+  flex-direction: column;
+  width: 25dvw;
+  height: 40dvh;
+  gap: 1rem;
+  justify-content: start;
+}
+.news-list li img {
+  width: 25dvw;
+  height: 25dvh;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.news-list li h2 {
+  font-size: 18px;
+  cursor: pointer;
+  transition: 0.1s ease;
+}
+.news-list li h2:hover {
+  color: red;
+  text-decoration: underline;
+  display: flex;
+}
+.news-list li h2:active {
+  color: black;
+}
+.news-list li h2:hover + p {
+  display: flex;
+}
+.news-list li p {
+  font-weight: 600;
+  padding-left: 0.3rem;
+  border-left: 3px solid red;
+  display: none;
+  animation: fade-in 0.5s ease forwards;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}/*# sourceMappingURL=list-news.component.css.map */
