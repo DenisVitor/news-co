@@ -94,6 +94,6 @@ export class FetchingService {
   deleteReview(id: string): void {
     this.http.delete(`/api/reviews/${id}`, {
       headers: { Authorization: `Bearer ${this.cookies.get('@Token')}` },
-    }).subscribe(() => console.log("oh cholera"));
+    }).subscribe();
   }
 }
